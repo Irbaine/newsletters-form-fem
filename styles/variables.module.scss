@@ -1,0 +1,328 @@
+$bgColor: #36384D;
+$btn: #232742;
+$text: #242843;
+
+// hover
+$c1: #FF537B;
+$c2: #FF5869;
+$c3: #FE6255;
+$c4: #FF693C;
+$sw: #ff537b71;
+
+//error
+$error: #d93431;
+
+
+
+@mixin breakpointV($min_heigth: 900px, $cont_width, $cont_height) {
+
+}
+
+@include breakpointV(900px, 70vh, 60vh);
+
+
+@mixin container($width, $height) {
+  margin: 0;
+  display: flex;
+  margin: auto;
+  width: $width;
+  height: $height;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 30px black;
+}
+
+@mixin btn{
+  background-color: $btn;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  padding: 5%;
+  cursor:pointer;
+  margin: 4%;
+}
+
+@mixin hover{
+  &:hover {
+    background-image: linear-gradient(to right, $c1, $c2, $c3, $c4);
+    box-shadow: 0px 5px 10px $sw;
+  }
+}
+
+.htm{
+  height: 100%;
+}
+
+.bg{
+  margin: 0;
+  background-color: $bgColor;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  color: $text;
+}
+
+
+.container{
+  @include container(70%, 80vh);
+}
+
+.sm_container{
+  @include container(35%, 45%);
+  justify-items: start;
+  max-width: 450px;
+  min-width: 350px;
+  max-height: 550px;
+  min-height: 400px;
+  
+}
+
+.relative{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1{
+  font-size: 250%;
+  margin: 4%;
+}
+
+.success{
+  align-self: flex-start;
+  padding: 5px;
+}
+
+.p{
+  margin:4%;
+}
+
+.btn{
+  width: 100%;
+  @include btn();
+  @include hover();
+}
+
+.mainBtn{
+  width: 97%;
+  @include btn();
+  @include hover();
+}
+
+
+
+.ul li {
+  list-style-type: none;
+  background-image: url("../public/icon-list.svg");
+  background-repeat: no-repeat;
+  min-height: 32px;
+  padding-left: 35px;
+}
+
+.ul{
+  padding-left: 15px
+}
+
+.s1 .s2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.s1{
+  //margin-left: 2%;
+  width: 45%;
+  
+}
+
+.s2{
+  position: relative;
+  /*height: 92%;*/
+  height: 75vh;
+  width: 42%;
+  overflow: visible;
+  overflow-wrap: hidden;
+  /*margin-right: -5vh; working*/
+  margin-right: 2.5vh;
+}
+
+.pic{
+  display: flex;
+}
+
+.s3{
+  display: none;
+}
+
+.label_Section{
+  display: flex;
+  justify-content: space-between;
+  margin-left:4%;
+  margin-block-end: -10px;
+}
+
+.label, .error{
+  margin-bottom: 2px;
+}
+
+.error{
+  color: $error;
+}
+
+.field{
+  box-sizing: border-box;
+  width: 97%;
+  text-align: left;
+  color: #959499;
+  border: 1px solid #959499;
+  border-radius: 5px;
+  padding: 4%;
+  margin: 4%;
+  margin-bottom:1%;
+}
+
+.field_error::placeholder{
+  color: $error;
+}
+
+.field_error{
+  box-sizing: border-box;
+  background-color: #FFE8E6;
+  width: 97%;
+  color: $error;
+  text-align: left;
+  border-radius: 5px;
+  border: 1px solid $error;
+  padding: 5%;
+  margin: 4%;
+  margin-bottom:1%;
+}
+
+.p{
+  margin: 4%;
+}
+
+
+@media screen and (min-height: 900px) {
+  .container{
+    width: 70vh;
+    height: 60vh;
+  }
+  .s2{
+    height: 55vh;
+    
+  }
+}
+
+
+@media screen and (min-width: 1100px) {
+  .container{
+    width: 60%;
+  }
+}
+
+
+  @media screen and (max-width: 700px) {
+    .pic{
+      display: none;
+    }
+    .s1{
+      width: 95%;
+      margin-left: -10%;
+    }
+    .s2{
+      display: none;
+    }
+    .form{
+      margin-inline-start: 10%;
+    }
+  }
+
+    @media screen and (max-width: 600px) {
+      .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0px;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+      }
+
+      .btn{
+          width: 90%;
+        }
+
+      .s1{
+        height: 62%;
+      }
+
+      .s3{
+        display: flex;
+        width: 100%;
+        height: 35%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-image: url("../public/illustration-sign-up-mobile.svg");
+        background-size: cover;
+      }
+
+      .s3 img{
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+      }
+
+      .form{
+        /*line-height: 30px;*/
+      }
+
+      .h1{
+        margin-left: 10%;
+      }
+
+      .form{
+        margin-inline-start: 10%;
+      }
+    }
+
+    @media screen and (max-width: 420px) {
+      .relative{
+        margin-right: 5%;
+        margin-left: 5%;
+      }
+      .h1{
+      margin-left: 2%;
+      }
+
+      .sm_container{
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0%;
+        box-shadow: none;
+        max-height: none;
+        
+      }
+      .column{
+        margin-bottom: 30%;
+      }
+
+      .btn{
+        position: fixed ;
+        bottom: 2%;
+      }
+    }
